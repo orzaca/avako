@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Saldos</title>
+  <style>
+  body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start; /* Alinea el contenido en la parte superior */
+      min-height: 100vh;
+    }
+
+  .contenido {
+      text-align: center;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 12px; /* Bordes redondeados */
+      border-left: 3px solid #ccc; /* Borde solo en el lado izquierdo */
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Sombra */
+      margin-top: 50px; /* Mayor margen superior */
+      margin-bottom: 50px; /* Mayor margen inferior */
+      margin-right: 20px; /* Margen derecho para centrar */
+      margin-left: 20px; /* Margen izquierdo para centrar */
+      position: relative; /* Añadido para la posición relativa */
+    }
+		
+				/* AQUI VA LOS MENSAJES DE SI Y NO */
+	.mensaje-quejas, .mensaje-orden {
+      text-align: center;
+			display: none; /* Ocultar inicialmente */
+      background-color: greenyellow /* Color de fondo fresco */
+      color: #fff; /* Color de texto */
+      border-radius: 12px; /* Bordes redondeados */
+      width: 400px;
+      padding: 20px;
+      margin-top: 50px; /* Mayor margen superior */
+      margin-bottom: 50px; /* Mayor margen inferior */
+      margin-right: 20px; /* Margen derecho para centrar */
+      margin-left: 20px; /* Margen izquierdo para centrar */
+      /*top: -50px;*/
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
+		transition: background-color 0.3s;
+    }
+
+  h1 {
+      margin: 0;
+      font-size: 15px; /* Tamaño de fuente más grande */
+      color: #333;
+      display: inline;
+    }
+		
+	h4 {
+			
+			text-align: center;
+			color: black;
+			}
+		
+	.sugerencia{
+			text-align: center;
+			margin-top: 50px; /* Mayor margen superior */
+      margin-bottom: 50px; /* Mayor margen inferior */
+      margin-right: 20px; /* Margen derecho para centrar */
+      margin-left: 10px; 
+		}
+    .linea-punteada {
+      position: relative; /* Posición absoluta */
+      left: 0; /* Alinear con el borde izquierdo */
+      top: 20%;
+			width: 100%; /* Ancho completo */
+      height: px; /* Grosor de la línea */
+      border-bottom: 3px dotted #4CAF50; /* Borde punteado más grueso y de color verde */
+    }
+
+    .opciones {
+      margin-top: 30px; /* Mayor margen superior para las opciones */
+      display: inline; /* Para que las opciones estén en la misma línea */
+    }
+
+    button {
+      margin: 0 15px; /* Mayor margen horizontal para los botones */
+      padding: 12px 30px; /* Mayor relleno para los botones */
+      font-size: 12px; /* Tamaño de fuente más grande para los botones */
+      cursor: pointer;
+      border: none;
+      border-radius: 8px; /* Bordes redondeados para los botones */
+      background-color: #4CAF50;
+      color: white;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    .opcion {
+      display: inline-block;
+    }
+
+    /* Estilos para los mensajes */
+    .mensaje-personalizado, .MenQuejas {
+      display: none; /* Ocultar inicialmente */
+      background-color: #78c2ad; /* Color de fondo fresco */
+      color: #fff; /* Color de texto */
+      border-radius: 12px; /* Bordes redondeados */
+      width: 300px;
+      padding: 20px;
+      margin-top: 20px; /* Margen superior */
+      position: absolute;
+      top: 150px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
+    }
+		
+
+  </style>
+</head>
+<body>
+
+<div class="contenido" id="saldos">
+  <h1>SALDOS</h1>
+	<div class="mensaje-personalizado"><p>Indicar que cancele, se tipifica como consultas-> Factura-> Residencial ->Detalle ->Saldo, fecha de corte y pago</p></div>
+  <div class="opciones">
+    <div class="opcion">
+	      <button id="siBtn" onclick="mostrarQuejas()">Si</button>
+    </div>
+    <div class="opcion">
+  	    <button id="noBtn" onclick="mostrarMensaje()">No</button>
+    </div>
+  </div>
+</div>
+	
+	
+
+<!-- Mensaje de Quejas -->
+<div id="mensaje-quejas" class="mensaje-quejas">
+  <h1>QUEJAS ABIERTAS ?</h1>
+ 
+   <div class="opciones">
+    <div class="opcion">
+      <button id="siquejasBtn" onclick="mostrarMensajeQuejas()">Si</button>
+    </div>
+    <div class="opcion">
+      <button id="noquejasBtn" onclick="mostrarOrden()">No</button>
+    </div>
+  </div>
+</div>
+	
+	<!-- Mensaje de Ordenes  -->
+<div id="mensaje-orden" class="mensaje-orden">
+  <h1>ORDENES SERVICIOS ?</h1>
+	
+   <div class="opciones">
+    <div class="opcion">
+      <button id="siquejasBtn" onclick="mostrarMensajeQuejas()">Si</button> 
+    </div>
+    <div class="opcion">
+      <button id="noquejasBtn" onclick="mostrarOrden()">No</button>
+    </div>
+  </div>
+</div>
+ 
+
+<!-- Mensaje SALDOS-->
+<div id="mensaje-personalizado" class="mensaje-personalizado">
+	  <p>Se le indica que tiene saldo vencido. Se brinda soporte pero NO se genera averia. (Exceptuando si se tiene bloqueo y tiene 	portadora OFF</p>
+		<p>Indicar que cancele, se tipifica como consultas-> Factura-> Residencial ->Detalle ->Saldo, fecha de corte y pago</p>
+		<p><h4><b>Sugerencia de Guion</b></h4></p>
+		<div class="linea-punteada"><br></div>
+		<span class="sugerencia"><button class="copy-button" 	onclick="copyToClipboard(this.parentElement.innerText.trim())">Lamentamos informarte que tu servicio se encuentra suspendido por saldo pendiente, el monto es QXXXX, Te invitamos a colocarte al día con tu factura ✔️, con el fin de que tu servicio sea restablecido a la normalidad lo más pronto posible, puedes realizar el pago fácil a través de 👉 gt.mipagoclaro.com. ¿Algo adicional en que te pueda ayudar? 😁</button></span>
+</div>
+
+	<!-- Mensaje QUEJAS-->
+	<div id="MenQuejas" class="MenQuejas">
+  <p>Seguimiento a la queja: Tipificación Depende del tiempo de generación de la queja.</p>
+		<p><h4><b>Sugerencia de Guion</b></h4></p>
+		<div class="linea-punteada"><br></div>
+		<span class="sugerencia"><button class="copy-button" 	onclick="copyToClipboard(this.parentElement.innerText.trim())">Lamentamos informarte que tu servicio se encuentra suspendido por saldo pendiente, el monto es QXXXX, Te invitamos a colocarte al día con tu factura ✔️, con el fin de que tu servicio sea restablecido a la normalidad lo más pronto posible, puedes realizar el pago fácil a través de 👉 gt.mipagoclaro.com. ¿Algo adicional en que te pueda ayudar? 😁</button></span>
+</div>
+
+<script>
+		<!-- REALIZA LA FUNCION DEL NO SALDOS-->
+  function mostrarMensaje() {
+    var mensaje = document.getElementById("mensaje-personalizado");
+    mensaje.style.display = "block";
+document.getElementById("siBtn").disabled = true;
+  }
+
+	<!-- REALIZA LA FUNCION DEL SI SALDOS-->
+  function mostrarQuejas() {
+    var mensajeQuejas = document.getElementById("mensaje-quejas");
+    var saldos = document.getElementById("saldos");
+    mensajeQuejas.style.display = "block";
+    saldos.style.display = "none";
+  }
+	
+			<!-- REALIZA LA FUNCION DEL SI QUEJAS -->
+  function mostrarMensajeQuejas() {
+    var mensaje = document.getElementById("MenQuejas");
+    mensaje.style.display = "block";
+document.getElementById("noquejasBtn").disabled = true;
+  }
+
+		<!-- REALIZA LA FUNCION DEL NO QUEJAS -->
+  function mostrarOrden() {
+    var mensaje_orden = document.getElementById("mensaje-orden");
+    var quejas1 = document.getElementById("mensaje-quejas");
+    mensaje_orden.style.display = "block";
+    quejas1.style.display = "none";
+  }
+
+</script>
+
+</body>
+</html>
