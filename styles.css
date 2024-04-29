@@ -1,0 +1,112 @@
+
+  body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start; /* Alinea el contenido en la parte superior */
+      min-height: 100vh;
+    }
+
+/* AQUI VA LOS MENSAJES DE SI Y NO */
+  .contenido {
+      text-align: center;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      border-left: 3px solid #ccc;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); 
+      margin-top: 50px; /
+      margin-bottom: 50px;
+      margin-right: 20px;
+      margin-left: 20px;
+      position: relative;
+}
+
+/* AQUI VA LOS MENSAJES DE SI Y NO */
+	.mensaje-quejas, .mensaje-orden, .mensaje-recientes {
+      text-align: center;
+			display: none;
+      background-color: greenyellow;
+      color: #fff;
+      border-radius: 12px; 
+      width: 400px;
+      padding: 20px;
+      margin-top: 50px;
+      margin-bottom: 50px;
+      margin-right: 20px;
+      margin-left: 20px; 
+      /*top: -50px;*/
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+		transition: background-color 0.3s;
+    }
+
+  h1 {
+      margin: 0;
+      font-size: 15px;
+      color: #333;
+      display: inline;
+    }
+
+	h4 {
+						text-align: center;
+			color: black;
+			}
+
+	.sugerencia{
+			text-align: center;
+			margin-top: 50px; /* Mayor margen superior */
+      margin-bottom: 50px; /* Mayor margen inferior */
+      margin-right: 20px; /* Margen derecho para centrar */
+      margin-left: 10px; 
+		}
+
+	.linea-punteada {
+      position: fixed; /* Posición absoluta */
+      left: 0; /* Alinear con el borde izquierdo */
+      top: 20%;
+			width: 100%; /* Ancho completo */
+      height: px; /* Grosor de la línea */
+      border-bottom: 3px dotted #4CAF50; /* Borde punteado más grueso y de color verde */
+    }
+
+  .opciones {
+      margin-top: 30px; /* Mayor margen superior para las opciones */
+      display: inline; /* Para que las opciones estén en la misma línea */
+    }
+
+  button {
+      margin: 0 15px; /* Mayor margen horizontal para los botones */
+      padding: 12px 30px; /* Mayor relleno para los botones */
+      font-size: 12px; /* Tamaño de fuente más grande para los botones */
+      cursor: pointer;
+      border: none;
+      border-radius: 8px; /* Bordes redondeados para los botones */
+      background-color: #4CAF50;
+      color: white;
+      transition: background-color 0.3s;
+    }
+
+  button:hover {
+      background-color: #45a049;
+    }
+
+  .opcion {
+  		display: inline-block;
+    }
+
+    /* Estilos para los mensajes */
+    .mensaje-personalizado, .MenQuejas {
+      display: none; 
+      background-color: #78c2ad;
+      color: #fff; 
+      border-radius: 12px; 
+      width: 300px;
+      padding: 20px;
+      margin-top: 20px; 
+      position: absolute;
+      top: 150px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
